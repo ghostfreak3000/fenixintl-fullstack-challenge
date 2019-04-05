@@ -1,0 +1,39 @@
+version: '3'
+services:
+  ch1_ui:
+    build: ./ch1/ch1_ui
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./ch1/ch1_ui:/code  
+    depends_on:
+      - ch1_api 
+  ch1_api:
+    build: ./ch1/ch1_api
+    ports:
+      - "5001:5000"
+    volumes:
+      - ./ch1/ch1_api:/code
+    depends_on:
+      - mongodb    
+  ch2_ui:
+    build: ./ch2/ch2_ui
+    ports:
+      - "3002:3000"
+    volumes:
+      - ./ch2/ch2_ui:/code  
+    depends_on:
+      - ch2_api          
+  ch2_api:
+    build: ./ch2/ch2_api
+    ports:
+      - "5002:5000"
+    volumes:
+      - ./ch2/ch2_api:/code  
+    depends_on:
+      - mongodb   
+  mongodb:
+    image: "mongo"
+    restart: always
+    volumes:
+      - /data/db
