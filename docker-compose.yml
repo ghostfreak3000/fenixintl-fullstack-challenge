@@ -33,7 +33,7 @@ services:
     depends_on:
       - mongodb   
   mongodb:
-    image: "mongo"
+    build: ./db
     restart: always
     volumes:
       - /data/db
