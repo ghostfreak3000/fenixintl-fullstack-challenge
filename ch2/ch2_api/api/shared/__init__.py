@@ -1,3 +1,4 @@
+import uuid
 from pymongo import MongoClient
 from pymongo import InsertOne, UpdateOne, UpdateMany, DeleteOne, DeleteMany, ReplaceOne
 
@@ -33,6 +34,9 @@ class Db:
             if 'insertOne' in raw_op:                               
                 document = raw_op["insertOne"].get("document",None)
                 
+                if '_id' not in document:
+                    document["_id"] = str(uuid.uuid4())
+
                 op = InsertOne(document)
                 pipeline.append(op)
 

@@ -8,9 +8,6 @@ database = Db.getInstance()
 def test_should_expose_connect():
     assert hasattr(database,'connect')
 
-def test_should_expose_close():
-    assert hasattr(database,'close')
-
 def test_should_expose_bulkWrite():
     assert hasattr(database,'bulkWrite')
 
