@@ -6,6 +6,7 @@ services:
       - "3001:3000"
     volumes:
       - ./ch1/ch1_ui:/code  
+      - /code/node_modules
     depends_on:
       - ch1_api 
   ch1_api:
@@ -22,6 +23,7 @@ services:
       - "3002:3000"
     volumes:
       - ./ch2/ch2_ui:/code  
+      - /code/node_modules  
     depends_on:
       - ch2_api          
   ch2_api:
