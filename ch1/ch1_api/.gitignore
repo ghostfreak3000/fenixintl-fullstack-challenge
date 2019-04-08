@@ -840,10 +840,6 @@ pip-selfcheck.json
 # Edit at https://www.gitignore.io/?templates=code
 
 ### Code ###
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+.vscode/
 
 # End of https://www.gitignore.io/api/code

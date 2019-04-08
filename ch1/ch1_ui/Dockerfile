@@ -10,6 +10,6 @@ ENV PATH /code/node_modules/.bin:$PATH
 # you can comment this out when using docker in a non-windows host to improve performance
 ENV CHOKIDAR_USEPOLLING true
 
-RUN yarn install
+RUN npm install
 
 CMD ["npm", "start"]

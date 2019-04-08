@@ -1,33 +1,110 @@
-.App {
-  text-align: center;
-}
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
+
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+               supported by Chrome and Opera */ }
+
+@media print {
+  .no-print, .no-print * {
+    display: none !important; } }
+#challenge1 {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  height: 100%; }
 
-.App-link {
-  color: #61dafb;
-}
+.main_app {
+  display: flex;
+  height: 100%;
+  width: 100%; }
+  .main_app .help {
+    flex: 1;
+    background-color: #2B2B2B;
+    color: white;
+    padding: 40px;
+    overflow-y: auto; }
+    .main_app .help .header {
+      margin-bottom: 20px;
+      font-size: 1.2em; }
+    .main_app .help .subheader {
+      margin-bottom: 10px;
+      color: #ff2020; }
+    .main_app .help .command {
+      margin-bottom: 20px; }
+      .main_app .help .command .cmd {
+        font-weight: bolder; }
+      .main_app .help .command .input:before {
+        content: "- "; }
+      .main_app .help .command .input {
+        padding-left: 20px; }
+      .main_app .help .command .eg {
+        margin-top: 10px;
+        font-size: .9em;
+        color: aqua; }
+  .main_app .workbench {
+    flex: 2.5;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto; }
+    .main_app .workbench .messages {
+      height: 100%;
+      margin-bottom: 10px;
+      overflow-y: auto; }
+      .main_app .workbench .messages .message {
+        font-size: .9em;
+        padding: 10px;
+        color: #00d1d1;
+        font-weight: bolder;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        margin: 0;
+        padding-left: 40px; }
+      .main_app .workbench .messages .message.type_command {
+        color: #2B2B2B;
+        font-weight: bolder;
+        font-size: 1.1em;
+        padding-left: 10px; }
+      .main_app .workbench .messages .message.type_error {
+        color: #CF1F1F;
+        font-weight: bolder;
+        padding-left: 40px; }
+    .main_app .workbench .loader img {
+      height: 40px; }
+    .main_app .workbench .input input {
+      width: 100%;
+      border: 2px solid #2B2B2B;
+      border-radius: 4px;
+      padding: 10px;
+      font-size: 1.1em;
+      font-weight: bolder; }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/*# sourceMappingURL=App.css.map */

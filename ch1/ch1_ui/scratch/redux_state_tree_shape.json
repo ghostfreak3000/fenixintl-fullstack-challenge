@@ -1,0 +1,26 @@
+{
+  "commands":{
+    "run":{
+      "running":false, //[ true,false ]
+      "status":"n/a", //[n/a,failed,success]
+      "result":{}
+    }
+  },
+  "messages":{
+    "add":{
+      "running":false, //[ true,false ]
+      "status":"n/a", //[n/a,fail,success,pending]
+      "message":{}
+    },
+    "load":{
+      "running":false, //[ true,false ]
+      "status":"n/a" //[n/a,fail,success,pending]
+    },
+    "del":{
+      "running":false, //[ true,false ]
+      "status":"n/a" //[n/a,fail,success,pending]
+    },
+    "byId":{},
+    "allIds":[]
+  }
+}
