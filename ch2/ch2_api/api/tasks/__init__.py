@@ -1,9 +1,10 @@
-import json
+import json, uuid
 from flask import jsonify,request
+
 import sys
 sys.path.append("..")
-from shared import Db
 
+from shared import Db
 database = Db.getInstance()
 database.connect({"uri":"mongodb://mongodb:27017","dbname":"challenge2"})
 
@@ -16,9 +17,10 @@ def create_task():
         except:
             pass
     
+    task["_id"] = str(uuid.uuid4())
     database.bulkWrite({"pipeline":[{"insertOne":{"document":task}}],"collection":"tasks"})
 
-    out = { "code":200,"status":"success","data":[] }
+    out = {"code":200,"status":"success","data":[task]}
     return jsonify(out)
 
 def read_tasks(task_id=None):
@@ -30,7 +32,7 @@ def read_tasks(task_id=None):
     print(_match)
 
     tasks = database.aggregate({"pipeline":[{"$match":_match}],"collection":"tasks"})
-    out = { "code":200,"status":"success","data":[tasks] }
+    out = { "code":200,"status":"success","data":tasks }
     return jsonify(out)
 
 def update_task(task_id):

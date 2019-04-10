@@ -1,33 +1,284 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#workbench_module {
+  background-color: #F9F9F9;
+  height: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; }
+
+#header_module {
+  height: 45px;
+  background-color: #D54136;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  color: rgba(255, 255, 255, 0.8); }
+  #header_module .left {
+    flex: 1; }
+  #header_module .middle {
+    flex: 5;
+    text-align: center; }
+  #header_module .right {
+    flex: 1;
+    display: flex;
+    justify-content: space-around; }
+    #header_module .right a {
+      color: inherit;
+      text-decoration: inherit; }
+    #header_module .right .logout {
+      font-size: .8em; }
+    #header_module .right .signup, #header_module .right .login, #header_module .right .logout {
+      cursor: pointer; }
+    #header_module .right .signup:hover, #header_module .right .login:hover, #header_module .right .logout:hover {
+      text-decoration: underline; }
+
+#tasks_view_many_module {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  overflow-y: auto;
+  height: 100%; }
+  #tasks_view_many_module .tasksArea {
+    background-color: #FEFEFE;
+    height: 100%;
+    width: 800px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    overflow-y: auto; }
+    #tasks_view_many_module .tasksArea .tasksHeader {
+      font-size: 2em;
+      font-weight: bolder;
+      color: rgba(0, 0, 0, 0.8);
+      padding-bottom: 20px; }
+      #tasks_view_many_module .tasksArea .tasksHeader .subscript {
+        font-size: .4em;
+        color: rgba(0, 0, 0, 0.5); }
+    #tasks_view_many_module .tasksArea .tasksList {
+      font-size: 1.3em; }
+      #tasks_view_many_module .tasksArea .tasksList .task {
+        padding-left: 20px; }
+      #tasks_view_many_module .tasksArea .tasksList .task.normal:hover {
+        border-left: 5px dashed rgba(0, 0, 0, 0.5);
+        -webkit-transition: border-left .2s;
+        /* Safari */
+        transition: border-left .2s; }
+        #tasks_view_many_module .tasksArea .tasksList .task.normal:hover .ctrls {
+          visibility: visible;
+          -webkit-transition: .3s;
+          /* Safari */
+          transition: .3s; }
+      #tasks_view_many_module .tasksArea .tasksList .task.edit:hover .ctrls {
+        visibility: visible;
+        -webkit-transition: .3s;
+        /* Safari */
+        transition: .3s; }
+      #tasks_view_many_module .tasksArea .tasksList .task.edit {
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center; }
+        #tasks_view_many_module .tasksArea .tasksList .task.edit .input {
+          flex: 4; }
+          #tasks_view_many_module .tasksArea .tasksList .task.edit .input input {
+            font-size: 1.1em;
+            padding: 10px;
+            width: 100%; }
+        #tasks_view_many_module .tasksArea .tasksList .task.edit .ctrls {
+          flex: 1;
+          display: flex;
+          justify-content: flex-end;
+          color: rgba(213, 65, 54, 0.8);
+          visibility: hidden;
+          align-items: center; }
+          #tasks_view_many_module .tasksArea .tasksList .task.edit .ctrls .ctrl {
+            cursor: pointer;
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+            height: 40px; }
+          #tasks_view_many_module .tasksArea .tasksList .task.edit .ctrls .loading {
+            margin-left: 10px;
+            height: 40px; }
+            #tasks_view_many_module .tasksArea .tasksList .task.edit .ctrls .loading img {
+              height: 40px; }
+          #tasks_view_many_module .tasksArea .tasksList .task.edit .ctrls .ctrl:hover {
+            text-decoration: underline; }
+      #tasks_view_many_module .tasksArea .tasksList .task.normal {
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center; }
+        #tasks_view_many_module .tasksArea .tasksList .task.normal .content {
+          flex: 4; }
+        #tasks_view_many_module .tasksArea .tasksList .task.normal .ctrls {
+          flex: 1;
+          display: flex;
+          justify-content: flex-end;
+          color: rgba(213, 65, 54, 0.8);
+          visibility: hidden;
+          align-items: center; }
+          #tasks_view_many_module .tasksArea .tasksList .task.normal .ctrls .ctrl {
+            cursor: pointer; }
+          #tasks_view_many_module .tasksArea .tasksList .task.normal .ctrls .loading {
+            margin-left: 10px;
+            height: 40px; }
+            #tasks_view_many_module .tasksArea .tasksList .task.normal .ctrls .loading img {
+              height: 40px; }
+          #tasks_view_many_module .tasksArea .tasksList .task.normal .ctrls .ctrl:hover {
+            text-decoration: underline; }
+      #tasks_view_many_module .tasksArea .tasksList .task.ctrl {
+        color: rgba(213, 65, 54, 0.8);
+        display: flex; }
+        #tasks_view_many_module .tasksArea .tasksList .task.ctrl .content {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          height: 40px; }
+        #tasks_view_many_module .tasksArea .tasksList .task.ctrl .loading {
+          margin-left: 10px; }
+          #tasks_view_many_module .tasksArea .tasksList .task.ctrl .loading img {
+            height: 40px; }
+        #tasks_view_many_module .tasksArea .tasksList .task.ctrl .content:hover {
+          color: #d54136; }
+          #tasks_view_many_module .tasksArea .tasksList .task.ctrl .content:hover .underline {
+            text-decoration: underline; }
 
-.App-link {
-  color: #61dafb;
-}
+#signup_module {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #F9F9F9; }
+  #signup_module .signup_form {
+    background-color: #FEFEFE;
+    padding: 40px 60px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+    font-size: 1em; }
+    #signup_module .signup_form .header {
+      margin-bottom: 20px;
+      font-size: 2em;
+      font-weight: bolder; }
+    #signup_module .signup_form .entry {
+      margin-bottom: 10px; }
+      #signup_module .signup_form .entry .label {
+        margin-bottom: 5px; }
+      #signup_module .signup_form .entry .input input {
+        padding: 5px;
+        width: 100%; }
+    #signup_module .signup_form .seperator {
+      margin-bottom: 20px; }
+    #signup_module .signup_form .loading {
+      text-align: center; }
+      #signup_module .signup_form .loading img {
+        height: 40px; }
+    #signup_module .signup_form .error {
+      background-color: #D54136;
+      color: white;
+      margin-bottom: 10px;
+      padding: 10px;
+      max-width: 210px;
+      font-size: 1em; }
+    #signup_module .signup_form .ctrl {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #D54136;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      #signup_module .signup_form .ctrl a {
+        color: inherit;
+        text-decoration: inherit; }
+      #signup_module .signup_form .ctrl .content {
+        cursor: pointer; }
+      #signup_module .signup_form .ctrl .content:hover {
+        text-decoration: underline; }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+#login_module {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #F9F9F9; }
+  #login_module .login_form {
+    background-color: #FEFEFE;
+    padding: 40px 60px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+    font-size: 1em; }
+    #login_module .login_form .header {
+      margin-bottom: 20px;
+      font-size: 2em;
+      font-weight: bolder; }
+    #login_module .login_form .entry {
+      margin-bottom: 10px; }
+      #login_module .login_form .entry .label {
+        margin-bottom: 5px; }
+      #login_module .login_form .entry .input input {
+        padding: 5px; }
+    #login_module .login_form .seperator {
+      margin-bottom: 20px; }
+    #login_module .login_form .loading {
+      text-align: center; }
+      #login_module .login_form .loading img {
+        height: 40px; }
+    #login_module .login_form .error {
+      background-color: #D54136;
+      color: white;
+      margin-bottom: 10px;
+      padding: 10px;
+      max-width: 210px;
+      font-size: 1em; }
+    #login_module .login_form .ctrl {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #D54136;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      #login_module .login_form .ctrl a {
+        color: inherit;
+        text-decoration: inherit; }
+      #login_module .login_form .ctrl .content {
+        cursor: pointer; }
+      #login_module .login_form .ctrl .content:hover {
+        text-decoration: underline; }
+
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; }
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
+
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+               supported by Chrome and Opera */ }
+
+@media print {
+  .no-print, .no-print * {
+    display: none !important; } }
+#tasker {
+  height: 100%; }
+
+/*# sourceMappingURL=App.css.map */

@@ -1,0 +1,34 @@
+#header_module{
+  height: 45px;
+  background-color: #D54136;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(255,255,255,.8);
+  .left{
+    flex: 1;
+  }
+  .middle{
+    flex: 5;
+    text-align: center;
+  }
+  .right{
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    a{
+      color: inherit;
+      text-decoration: inherit;
+    }
+    .logout{
+      font-size: .8em;
+    }
+    .signup,.login,.logout{
+      cursor: pointer;
+    }
+    .signup:hover,.login:hover,.logout:hover{
+      text-decoration: underline;
+    }
+
+  }
+}

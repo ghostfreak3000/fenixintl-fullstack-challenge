@@ -1,0 +1,139 @@
+#tasks_view_many_module{
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+  height: 100%;
+  .tasksArea{
+      background-color: #FEFEFE;
+      height: 100%;
+      width: 800px;
+      box-shadow: 0 1px 8px rgba(0,0,0,.3);
+      padding: 40px;
+      overflow-y: auto;
+      .tasksHeader{
+        font-size: 2em;
+        font-weight: bolder;
+        color: rgba(0,0,0,0.8);
+        padding-bottom: 20px;
+        .subscript{
+          font-size: .4em;
+          color: rgba(0,0,0,.5);
+        }
+      }
+      .tasksList{
+        font-size: 1.3em;
+        .task{
+          padding-left: 20px;
+        }
+        .task.normal:hover{
+          border-left: 5px dashed rgba(0,0,0,0.5);
+          -webkit-transition: border-left .2s; /* Safari */
+          transition: border-left .2s;
+          .ctrls{
+            visibility: visible;
+            -webkit-transition: .3s; /* Safari */
+            transition: .3s;
+          }
+        }
+        .task.edit:hover{
+          .ctrls{
+            visibility: visible;
+            -webkit-transition: .3s; /* Safari */
+            transition: .3s;
+          }
+        }
+        .task.edit{
+          margin-bottom: 10px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .input{
+            flex:4;
+
+            input{
+              font-size: 1.1em;
+              padding: 10px;
+              width: 100%;
+            }
+          }
+          .ctrls{
+            flex:1;
+            display: flex;
+            justify-content: flex-end;
+            color: rgba(213,65,54,.8);
+            visibility: hidden;
+            align-items: center;
+            .ctrl{
+              cursor: pointer;
+              margin-left: 10px;
+              display: flex;
+              align-items: center;
+              height: 40px;
+            }
+            .loading{
+              margin-left: 10px;
+              height: 40px;
+              img{
+                height: 40px;
+              }
+            }
+            .ctrl:hover{
+              text-decoration: underline;
+            }
+          }
+        }
+        .task.normal{
+          margin-bottom: 10px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .content{
+            flex: 4;
+          }
+          .ctrls{
+            flex:1;
+            display: flex;
+            justify-content: flex-end;
+            color: rgba(213,65,54,.8);
+            visibility: hidden;
+            align-items: center;
+            .ctrl{
+              cursor: pointer;
+            }
+            .loading{
+              margin-left: 10px;
+              height: 40px;
+              img{
+                height: 40px;
+              }
+            }
+            .ctrl:hover{
+              text-decoration: underline;
+            }
+          }
+        }
+        .task.ctrl{
+          color: rgba(213,65,54,.8);
+          display: flex;
+          .content{
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            height: 40px;
+          }
+          .loading{
+            margin-left: 10px;
+            img{
+              height: 40px;
+            }
+          }
+          .content:hover{
+            color: rgba(213,65,54,1);
+            .underline{
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+  }
+}

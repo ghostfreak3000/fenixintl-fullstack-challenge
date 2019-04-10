@@ -1,4 +1,4 @@
-import uuid
+import uuid, datetime, time
 from pymongo import MongoClient
 from pymongo import InsertOne, UpdateOne, UpdateMany, DeleteOne, DeleteMany, ReplaceOne
 
@@ -24,6 +24,18 @@ class Db:
         dbname = opts["dbname"]
         Db.__conn = MongoClient(uri)
         Db.__database = getattr(Db.__conn,dbname)
+
+    def save(self,obj,collection):
+
+        # Many thanks to https://stackoverflow.com/a/28147286/1677589
+        # Calculate the offset taking into account daylight saving time
+        utc_offset_sec = time.altzone if time.localtime().tm_isdst else time.timezone
+        utc_offset = datetime.timedelta(seconds=-utc_offset_sec)
+
+        updated_at = datetime.datetime.now().replace(tzinfo=datetime.timezone(offset=utc_offset)).isoformat()
+        obj["updated_at"] = updated_at
+        
+        self.bulkWrite({"pipeline":[{"updateOne":{"filter":{"_id":obj["_id"]},"update":{"$set":obj},"upsert":True}}],"collection":collection})
 
     def bulkWrite(self,opts):
         raw_pipeline = opts["pipeline"]
